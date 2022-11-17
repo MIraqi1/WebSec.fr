@@ -1,0 +1,3 @@
+This one was a little easier because in the source code we can see the stringcasecompare has an ! in the condition meaning anything false will return as true
+so i sent the request to the repeater tool in burp suite and changed the request method from GET to POST and added flag[]=; to the request 
+and the flaf was returned as WEBSEC{It_seems_that_php_could_use_a_stricter_typing_system}
