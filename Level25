@@ -1,0 +1,13 @@
+This one was labeled as baby steps but it took me some digging through PHP documentation to exploit.
+
+firstly, the code checks if there is a string 'flag' being passed and runs a loop to check if the value 'flag' is being passed then it returns die.
+
+i noticed in the php documenation that the exception for the URL parsing is using triple slashes :///
+I then tried to complete the challenge by adding two slashes to the URL and once i passed the flag string i got the flag and passed the challenge 
+
+https://websec.fr///level25/index.php?page=flag&send=Submit
+
+FLAG WEBSEC{How_am_I_supposed_to_parse_uri_when_everything_is_so_broooken}
+
+I also saw a write up on websec.fr once i passed the challenge that said all thats needed to malform an URL is ":" in the query string makes the parsel_url 
+always return false. I tried it and it worked so theres two ways to beat this challenge. 
